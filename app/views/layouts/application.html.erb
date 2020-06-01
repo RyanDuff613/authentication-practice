@@ -10,6 +10,14 @@
   </head>
 
   <body>
+    <% if current_user %>
+      <%= current_user.email %> | <%= link_to "sign in", '/signin'%>
+    <% else %>
+      <%= link_to "Sign_up", 'signup'%> | <%= link_to "sign in", '/signin'%>
+    <% end %>
+
+    <%= flash[:alert] %>
+    <%= flash[:notice] %>
     <%= yield %>
   </body>
 </html>
